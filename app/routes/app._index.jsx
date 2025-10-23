@@ -617,7 +617,9 @@ export default function Index() {
     }
 
     const handleMessage = (event) => {
-      if (event.origin !== window.location.origin) {
+      const expectedOrigin = allowedOrigin || window.location.origin;
+
+      if (event.origin !== expectedOrigin) {
         return;
       }
 
@@ -636,18 +638,23 @@ export default function Index() {
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, [authorizeUrl, trelloFetcher]);
+  }, [allowedOrigin, authorizeUrl, trelloFetcher]);
 
   const connectToTrello = () => {
     if (!authorizeUrl) {
       return;
     }
 
-    window.open(
-      authorizeUrl,
-      "trelloAuthorize",
-      "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=700",
-    );
+    try {
+      window.sessionStorage?.setItem(
+        "trello:returnPath",
+        window.location.href,
+      );
+    } catch (_error) {
+      // Ignore storage failures and fall back to default redirect
+    }
+
+    window.location.assign(authorizeUrl);
   };
 
   const boardsSource = overrideBoards ?? boards;
