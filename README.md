@@ -1,6 +1,29 @@
-# Shopify App Template - React Router
+# # Shopify Trello Ticket Automation App
 
-This repository now powers a Trello ticket automation app for Shopify merchants. Follow the notes below to wire Trello into the scaffold.
+This project is a Shopify embedded application that enables merchants to automatically create Trello tickets directly from their Shopify store.
+
+## Features
+
+- React + TypeScript
+- Shopify App Bridge
+- Shopify Polaris
+- Trello REST API
+- OAuth Authentication
+- GraphQL
+- Prisma ORM
+- Docker Support
+
+## Technologies
+
+- React
+- TypeScript
+- React Router
+- Node.js
+- Prisma
+- GraphQL
+- Docker
+- Shopify CLI
+- Trello API
 
 Rather than cloning this repo, follow the [Quick Start steps](https://github.com/Shopify/shopify-app-template-react-router#quick-start).
 
