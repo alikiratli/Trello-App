@@ -1,5 +1,7 @@
 # # Shopify Trello Ticket Automation App
 
+> **Development:** Solo project by Ali Kiratli.
+
 This project is a Shopify embedded application that enables merchants to automatically create Trello tickets directly from their Shopify store.
 
 ## Features
